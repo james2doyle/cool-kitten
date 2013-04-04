@@ -5,9 +5,9 @@ command -v cleancss >/dev/null 2>&1 || {
   echo "cleancss is required. run: sudo npm install cleancss -g" >&2; exit 1;
 }
 
-# check to see if uglifyjs2 is installed
-command -v uglifyjs2 >/dev/null 2>&1 || {
-  echo "uglifyjs2 is required. run: sudo npm install uglifyjs2 -g" >&2; exit 1;
+# check to see if uglifyjs is installed
+command -v uglifyjs >/dev/null 2>&1 || {
+  echo "uglify-js is required. run: sudo npm install uglify-js -g" >&2; exit 1;
 }
 
 # find the folder that this script is in. this is the root of the project
@@ -22,8 +22,8 @@ cat "$cssDir/normalize.css" "$cssDir/grid.css" "$cssDir/style.css" | cleancss -o
 
 echo "compiled >> css/styles.min.css"
 
-# grab all the js files and concat them with uglifyjs2
-uglifyjs2 "$jsDir/retina.js" "$jsDir/jquery.js" "$jsDir/stellar.js" "$jsDir/scrollspy.js" "$jsDir/script.js" -o "$jsDir/scripts.min.js"
+# grab all the js files and concat them with uglifyjs
+uglifyjs "$jsDir/retina.js" "$jsDir/jquery.js" "$jsDir/stellar.js" "$jsDir/scrollspy.js" "$jsDir/script.js" -o "$jsDir/scripts.min.js"
 
 echo "compiled >> js/scripts.min.js"
 
